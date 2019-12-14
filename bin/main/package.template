@@ -1,0 +1,10 @@
+{
+  "name": "CustomTaskBot",
+  "label": "Custom Task Bot",
+  "description": "Provides actions for running a bot by name",
+  "group": "",
+  "artifactName": "",
+  "packageVersion": "",
+  "codeVersion": "",
+  "commands": []
+}

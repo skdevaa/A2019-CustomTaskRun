@@ -1,0 +1,44 @@
+{
+    "name": "CustomTaskBot",
+    "label": "Custom Task Bot",
+    "description": "Provides actions for running a bot by name",
+    "group": "com.automationanywhere",
+    "artifactName": "CustomTaskBot",
+    "packageVersion": "1.0.0-20191214-130402",
+    "codeVersion": "1.0.0-20191214-130402",
+    "commands": [
+        {
+            "name": "customruntask",
+            "label": "Run Task",
+            "description": "Run Task by name",
+            "nodeLabel": "Custom Tun Task",
+            "mainClass": "com.automationanywhere.botcommand.sk.RunTaskCommand",
+            "returnType": "DICTIONARY",
+            "returnSubtype": "UNDEFINED",
+            "returnLabel": "",
+            "returnRequired": false,
+            "attributes": [
+                {
+                    "name": "botname",
+                    "label": "Bot Name",
+                    "type": "TEXT",
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "name": "continueOnError",
+                    "label": "Continue on error ",
+                    "type": "CHECKBOX",
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
