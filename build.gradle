@@ -86,7 +86,14 @@ configure(allprojects){
 		compileOnly name: 'bot-runtime', version: '1+'
 		compileOnly name: 'bot-api', version: '1+'
 		compileOnly name: 'command-processor' , version: '1+'
+		compile group: 'org.openjfx', name: 'javafx-base', version: '13', classifier: 'win'
+		compile group: 'org.openjfx', name: 'javafx-graphics', version: '13', classifier: 'win'
+		compile group: 'org.openjfx', name: 'javafx-controls', version: '13', classifier: 'win'
+		compile group: 'org.openjfx', name: 'javafx-swing', version: '13', classifier: 'win'
+		testCompile group: 'org.apache.commons', name: 'commons-jcs-jcache', version: '2.2.1'
+		compile group: 'org.apache.commons', name: 'commons-jcs-core', version: '2.2.1'
 		implementation name: 'i18n-api', version: '1+'
+		implementation name: 'botutil', version: '1+'
 		apt name: 'command-processor', version: '1+'
 		compileOnly group: 'org.apache.logging.log4j', name: 'log4j-core', version: "$loggerVersion"
 		testImplementation "org.testng:testng:$testNgVersion"

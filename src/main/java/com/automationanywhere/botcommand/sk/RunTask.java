@@ -1,5 +1,5 @@
 /*
-C:\Users\Stefan Karsten\Documents\AlleDateien\Demos\Packages\IBM Watson * Copyright (c) 2019 Automation Anywhere.
+EndSession.javaC:\Users\Stefan Karsten\Documents\AlleDateien\Demos\Packages\IBM Watson * Copyright (c) 2019 Automation Anywhere.
  * All rights reserved.
  *
  * This software is the proprietary information of Automation Anywhere.
@@ -56,8 +56,8 @@ import java.util.Map;
 
 
 @BotCommand
-@CommandPkg(label="Run Task", name="customruntask", description="Run Task by name", icon="",
-node_label="Custom Tun Task",
+@CommandPkg(label="Run Task", name="customruntask", description="Run Task by name", icon="run.svg",
+node_label="Custom Run Task",
 return_type=DataType.DICTIONARY,  return_required=false)
 public class RunTask {
 	
@@ -74,7 +74,7 @@ public class RunTask {
 	  
 	@Execute
 	public Value action( @Idx (index = "1", type = TEXT) @Pkg(label = "Bot Name", default_value_type = STRING) @NotEmpty String botname,
-								  @Idx(index = "3", type = CHECKBOX) @Pkg(label = "Continue on error ", default_value_type = BOOLEAN) @NotEmpty Boolean continueOnError)
+								  @Idx(index = "2", type = CHECKBOX) @Pkg(label = "Continue on error ", default_value_type = BOOLEAN) @NotEmpty Boolean continueOnError)
 	 {
 		
 

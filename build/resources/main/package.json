@@ -4,15 +4,128 @@
     "description": "Provides actions for running a bot by name",
     "group": "com.automationanywhere",
     "artifactName": "CustomTaskBot",
-    "packageVersion": "1.0.0-20191214-130402",
-    "codeVersion": "1.0.0-20191214-130402",
+    "packageVersion": "1.0.0-20191231-164447",
+    "codeVersion": "1.0.0-20191231-164447",
     "commands": [
+        {
+            "name": "endSession",
+            "label": "End session",
+            "description": "End session",
+            "nodeLabel": "End session {{sessionName}}|",
+            "mainClass": "com.automationanywhere.botcommand.sk.EndSessionCommand",
+            "icon": "alp.svg",
+            "attributes": [
+                {
+                    "name": "sessionName",
+                    "label": "Session name",
+                    "type": "TEXT",
+                    "defaultValue": {
+                        "string": "Default",
+                        "type": "STRING"
+                    },
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "launchruntask",
+            "label": "Launch Task",
+            "description": "Launch Task by name",
+            "nodeLabel": "Custom Launch Task",
+            "mainClass": "com.automationanywhere.botcommand.sk.LaunchTaskCommand",
+            "icon": "alp.svg",
+            "returnType": "DICTIONARY",
+            "returnSubtype": "UNDEFINED",
+            "returnLabel": "",
+            "returnRequired": false,
+            "attributes": [
+                {
+                    "name": "sessionName",
+                    "label": "Session name",
+                    "type": "TEXT",
+                    "defaultValue": {
+                        "string": "Default",
+                        "type": "STRING"
+                    },
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Notify",
+            "label": "Notify",
+            "description": "Notify Launchpad",
+            "nodeLabel": "Notify",
+            "mainClass": "com.automationanywhere.botcommand.sk.NotifyCommand",
+            "icon": "alp.svg",
+            "attributes": [
+                {
+                    "name": "message",
+                    "label": "Message",
+                    "type": "TEXT",
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "name": "type",
+                    "label": "Message Type",
+                    "type": "SELECT",
+                    "defaultValue": {
+                        "string": "INFORMATION",
+                        "type": "STRING"
+                    },
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Information",
+                            "value": "INFORMATION"
+                        },
+                        {
+                            "label": "Error",
+                            "value": "ERROR"
+                        },
+                        {
+                            "label": "Warning",
+                            "value": "WARNING"
+                        },
+                        {
+                            "label": "Question",
+                            "value": "QUESTION"
+                        },
+                        {
+                            "label": "Start",
+                            "value": "START"
+                        },
+                        {
+                            "label": "Stop",
+                            "value": "STOP"
+                        }
+                    ]
+                }
+            ]
+        },
         {
             "name": "customruntask",
             "label": "Run Task",
             "description": "Run Task by name",
-            "nodeLabel": "Custom Tun Task",
+            "nodeLabel": "Custom Run Task",
             "mainClass": "com.automationanywhere.botcommand.sk.RunTaskCommand",
+            "icon": "run.svg",
             "returnType": "DICTIONARY",
             "returnSubtype": "UNDEFINED",
             "returnLabel": "",
@@ -32,6 +145,68 @@
                     "name": "continueOnError",
                     "label": "Continue on error ",
                     "type": "CHECKBOX",
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "startSession",
+            "label": "Start session",
+            "description": "Start new session",
+            "nodeLabel": "start session {{sessionName}}|",
+            "mainClass": "com.automationanywhere.botcommand.sk.StartSessionCommand",
+            "icon": "alp.svg",
+            "attributes": [
+                {
+                    "name": "sessionName",
+                    "label": "Session name",
+                    "type": "TEXT",
+                    "defaultValue": {
+                        "string": "Default",
+                        "type": "STRING"
+                    },
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "name": "bots",
+                    "label": "Bots",
+                    "type": "DICTIONARY",
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "waitSession",
+            "label": "Wait",
+            "description": "Wait to end session",
+            "nodeLabel": "wait session {{sessionName}}|",
+            "mainClass": "com.automationanywhere.botcommand.sk.WaitCommand",
+            "icon": "alp.svg",
+            "returnType": "BOOLEAN",
+            "returnSubtype": "UNDEFINED",
+            "returnLabel": "Continue",
+            "returnRequired": true,
+            "attributes": [
+                {
+                    "name": "sessionName",
+                    "label": "Session name",
+                    "type": "TEXT",
+                    "defaultValue": {
+                        "string": "Default",
+                        "type": "STRING"
+                    },
                     "rules": [
                         {
                             "name": "NOT_EMPTY"
